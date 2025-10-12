@@ -1,36 +1,41 @@
-# Astro Starter Kit: Basics
+# Pavlos Papaefstathiou - Personal Landing Page
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is my personal landing page built with [Astro](https://astro.build), showcasing my work as a technology strategist, photographer, and visual storyteller.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎨 Design Features
 
-## 🚀 Project Structure
+- **Minimalist Design**: Clean black and white color palette with simple, elegant styling
+- **Contemporary Typography**: 
+  - Instrument Serif (italic) for headings - large, elegant serif font
+  - Outfit (light) for body text - modern geometric sans-serif with airy, contemporary feel
+- **Full-Width Hero Video**: Autoplaying profile video spanning the entire screen width
+- **Responsive Layout**: Single-page scroll design optimized for all devices
+- **Light/Dark Mode**: Automatic theme detection based on system preferences with manual toggle
+- **Privacy-First**: No cookies, no localStorage - uses Simple Analytics for privacy-first visitor insights
+- **Custom Favicon**: Retro-tech gradient π (pi) icon
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🔗 Social Links
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+The page includes icon-only social links to:
+- Photo Portfolio (36 Frames)
+- Instagram
+- Threads
+- YouTube
+- GitHub
+- SoundCloud
+- LinkedIn
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠 Technical Stack
 
-## 🧞 Commands
+- **Framework**: Astro 5.14.4
+- **Fonts**: Google Fonts (Instrument Serif & Outfit)
+- **Styling**: Scoped CSS with CSS custom properties for theming
+- **Theme System**: Session-only theme toggle (no persistent storage)
+- **Analytics**: Simple Analytics (privacy-first, no cookies)
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Commands
+
+All commands are run from the root of the project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -39,8 +44,29 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 📁 Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```text
+/
+├── src/
+│   ├── assets/
+│   │   └── pavlosp-profile-video.mp4
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+## 📝 Content
+
+The landing page includes:
+- Introduction and professional background
+- Links to LGBT+ equality research and publications
+- Passions and creative projects
+- Social media and portfolio links
+
+---
+
+Built with care and attention to design, performance, and privacy.

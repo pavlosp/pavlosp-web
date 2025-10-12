@@ -1,22 +1,216 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Pavlos Papaefstathiou - Technology Strategist, Photographer & Visual Storyteller",
+	description = "Ex-BCG technology strategist, avid photographer and visual storyteller. Passionate about technology, data & AI, photography, and driving equality."
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://pavlosp.com" />
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+		<!-- Theme Toggle Button -->
+		<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+			<svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<circle cx="12" cy="12" r="5"></circle>
+				<line x1="12" y1="1" x2="12" y2="3"></line>
+				<line x1="12" y1="21" x2="12" y2="23"></line>
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+				<line x1="1" y1="12" x2="3" y2="12"></line>
+				<line x1="21" y1="12" x2="23" y2="12"></line>
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+			</svg>
+			<svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</button>
+
 		<slot />
+		
+		<!-- 100% privacy-first analytics -->
+		<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 	</body>
 </html>
 
-<style>
+<script>
+	// Theme toggle functionality (no storage, session-only)
+	function getSystemTheme(): string {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme(): string {
+		return document.documentElement.getAttribute('data-theme') || getSystemTheme();
+	}
+
+	function setTheme(theme: string) {
+		document.documentElement.setAttribute('data-theme', theme);
+	}
+
+	// Set initial theme based on system preference
+	setTheme(getSystemTheme());
+
+	// Theme toggle button handler
+	const themeToggle = document.getElementById('theme-toggle');
+	themeToggle?.addEventListener('click', () => {
+		const currentTheme = getCurrentTheme();
+		const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+		setTheme(newTheme);
+	});
+</script>
+
+<style is:global>
+	:root {
+		/* Simple Light Mode Palette */
+		--color-background: #ffffff;
+		--color-text: #000000;
+		--color-text-secondary: #666666;
+		--color-accent: #0066ff;
+		--color-border: #e5e5e5;
+		--color-hover: #333333;
+	}
+
+	[data-theme='dark'] {
+		/* Simple Dark Mode Palette */
+		--color-background: #000000;
+		--color-text: #ffffff;
+		--color-text-secondary: #999999;
+		--color-accent: #0066ff;
+		--color-border: #2a2a2a;
+		--color-hover: #cccccc;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
 	html,
 	body {
-		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+		background-color: var(--color-background);
+		color: var(--color-text);
+		line-height: 1.6;
+		font-weight: 300;
+		letter-spacing: -0.01em;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	body {
+		overflow-x: hidden;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Instrument Serif', Georgia, serif;
+		font-weight: 400;
+		line-height: 1.1;
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: underline;
+		text-decoration-color: var(--color-border);
+		text-underline-offset: 3px;
+		transition: all 0.3s ease;
+	}
+
+	a:hover {
+		text-decoration-color: var(--color-text);
+	}
+
+	::selection {
+		background-color: var(--color-accent);
+		color: var(--color-background);
+	}
+
+	/* Theme Toggle Button */
+	.theme-toggle {
+		position: fixed;
+		top: 2rem;
+		right: 2rem;
+		width: 48px;
+		height: 48px;
+		border: 1px solid var(--color-border);
+		background: var(--color-background);
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+		z-index: 1000;
+		color: var(--color-text);
+	}
+
+	.theme-toggle:hover {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+
+	.theme-toggle svg {
+		color: var(--color-text);
+	}
+
+	.sun-icon {
+		display: block;
+	}
+
+	.moon-icon {
+		display: none;
+	}
+
+	[data-theme='dark'] .sun-icon {
+		display: none;
+	}
+
+	[data-theme='dark'] .moon-icon {
+		display: block;
+	}
+
+	@media (max-width: 768px) {
+		.theme-toggle {
+			top: 1.5rem;
+			right: 1.5rem;
+			width: 44px;
+			height: 44px;
+		}
 	}
 </style>

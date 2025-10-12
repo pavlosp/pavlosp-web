@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const post = {
+	title: 'Migrating from Adobe Portfolio to Astro',
+	date: '2025-10-12',
+	tags: ['web development', 'astro', 'portfolio'],
+};
+---
+
+<Layout title={`${post.title} - Pavlos Papaefstathiou`}>
+	<main>
+		<article class="container">
+			<header class="header">
+				<a href="/news" class="back-link">← Back to news</a>
+				<time class="post-date">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+				<h1 class="post-title">{post.title}</h1>
+				<div class="post-tags">
+					{post.tags.map((tag) => (
+						<span class="tag">{tag}</span>
+					))}
+				</div>
+			</header>
+
+			<div class="post-content">
+				<p>
+					After years of using Adobe Portfolio to showcase my photography work, I've decided to rebuild my personal website from scratch. The platform served me well, but I wanted more control, better performance, and a design that truly reflects my aesthetic.
+				</p>
+
+				<h2>Why Astro?</h2>
+				<p>
+					I chose <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> as the framework for this rebuild. It's incredibly fast, ships zero JavaScript by default, and gives me complete creative freedom. The result is a lightning-fast, minimalist site that loads almost instantly.
+				</p>
+
+				<h2>New Photography Portfolio</h2>
+				<p>
+					My photography has also found a new home on <a href="https://36frames.me/@pavlosp" target="_blank" rel="noopener noreferrer">36 Frames</a>, a platform built specifically for photographers.
+				</p>
+				<p>
+					<a href="https://36frames.me/@pavlosp" target="_blank" rel="noopener noreferrer">36 Frames</a> has been a passion project of mine, built from the ground up, to provide a simple, responsive, beautiful experience for sharing my portfolio with friends and family (more on that soon). It's cleaner, faster, and provides a much better viewing experience for my travel photography and photo essays.
+				</p>
+
+				<h2>Design Philosophy</h2>
+				<p>
+					The new site embraces minimalism with a simple black and white color palette. I'm using contemporary typography — Instrument Serif for headings and Outfit for body text — both with tight letter-spacing for that modern, editorial look.
+				</p>
+				<p>
+					The design automatically adapts to your system's light or dark mode preference, and you can toggle between themes with the button in the top-right corner. Importantly, the site is completely stateless — no cookies, no tracking, no localStorage — so there's no need for annoying cookie notices.
+				</p>
+
+				<h2>Built with AI Assistance</h2>
+				<p>
+					This entire site was built with the assistance of Claude (Anthropic's AI), working through Cursor. The iterative design process — from initial colorful gradients to the final minimalist aesthetic — was a collaborative conversation between human intent and AI execution. It's fascinating how AI can help translate design ideas into code while maintaining high-quality, modern web development practices.
+				</p>
+
+				<h2>Technical Stack</h2>
+				<p>
+					The site is built with:
+				</p>
+				<ul>
+					<li><strong>Astro 5</strong> — Modern static site generator</li>
+					<li><strong>Google Fonts</strong> — Instrument Serif & Outfit</li>
+					<li><strong>CSS Custom Properties</strong> — For clean theme switching</li>
+					<li><strong>Zero JavaScript</strong> — Except for the theme toggle</li>
+					<li><strong>Privacy-first</strong> — Using Simple Analytics cookie-less privacy-first analytics</li>
+				</ul>
+
+				<h2>Open Source</h2>
+				<p>
+					The complete source code for this website will be shared on <a href="https://github.com/pavlosp-web" target="_blank" rel="noopener noreferrer">GitHub</a>. Feel free to use it as inspiration for your own projects, or learn from the implementation.
+				</p>
+
+				<p>
+					Here's to new beginnings and creative control! 🎨
+				</p>
+			</div>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	/* Container */
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 5rem 2rem 3rem;
+	}
+
+	/* Header */
+	.header {
+		margin-bottom: 4rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.back-link {
+		display: inline-block;
+		font-size: 1rem;
+		margin-bottom: 2rem;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		opacity: 1;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.post-date {
+		display: block;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		margin-bottom: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.post-title {
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		font-style: italic;
+		margin-bottom: 2rem;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+
+	.post-tags {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		font-size: 0.875rem;
+		padding: 0.25rem 0.75rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		color: var(--color-text-secondary);
+	}
+
+	/* Content */
+	.post-content {
+		font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+		line-height: 1.7;
+	}
+
+	.post-content p {
+		margin-bottom: 1.75rem;
+	}
+
+	.post-content h2 {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-style: italic;
+		margin-top: 3rem;
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+	}
+
+	.post-content ul {
+		margin-bottom: 1.75rem;
+		padding-left: 1.5rem;
+	}
+
+	.post-content li {
+		margin-bottom: 0.75rem;
+		line-height: 1.7;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.container {
+			padding: 4rem 1.5rem 2rem;
+		}
+
+		.header {
+			margin-bottom: 3rem;
+			padding-bottom: 2rem;
+		}
+
+		.post-content h2 {
+			margin-top: 2.5rem;
+			margin-bottom: 1.25rem;
+		}
+	}
+</style>
+
