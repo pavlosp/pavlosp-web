@@ -1,0 +1,14 @@
+{
+    "name": "Pavlos P.",
+    "short_name": "Pavlos",
+    "icons": [
+      {
+        "src": "/apple-touch-icon.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
+    ],
+    "background_color": "#000000",
+    "display": "standalone"
+  }
