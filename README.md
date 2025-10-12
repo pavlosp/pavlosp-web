@@ -1,6 +1,6 @@
 # Pavlos Papaefstathiou - Personal Landing Page
 
-This is my personal landing page built with [Astro](https://astro.build), showcasing my work as a technology strategist, photographer, and visual storyteller.
+This is my personal landing page built with [Astro](https://astro.build), showcasing my work as a technology strategist, photographer, visual storyteller & electronic music enthusiast.
 
 ## 🎨 Design Features
 
