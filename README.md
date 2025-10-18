@@ -7,7 +7,7 @@ This is my personal landing page built with [Astro](https://astro.build), showca
 - **Minimalist Design**: Clean black and white color palette with simple, elegant styling
 - **Contemporary Typography**: 
   - Instrument Serif (italic) for headings - large, elegant serif font
-  - Outfit (light) for body text - modern geometric sans-serif with airy, contemporary feel
+  - Noto Sans (light) for body text - clean, modern humanist sans-serif with excellent readability
 - **Full-Width Hero Video**: Autoplaying profile video spanning the entire screen width
 - **Responsive Layout**: Single-page scroll design optimized for all devices
 - **Light/Dark Mode**: Automatic theme detection based on system preferences with manual toggle
@@ -28,7 +28,7 @@ The page includes icon-only social links to:
 ## 🛠 Technical Stack
 
 - **Framework**: Astro 5.14.4
-- **Fonts**: Google Fonts (Instrument Serif & Outfit)
+- **Fonts**: Google Fonts (Instrument Serif & Noto Sans)
 - **Styling**: Scoped CSS with CSS custom properties for theming
 - **Theme System**: Session-only theme toggle (no persistent storage)
 - **Analytics**: Simple Analytics (privacy-first, no cookies)
