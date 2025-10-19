@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { posts } from '../../data/posts';
+import { formatDateUK } from '../../utils/date';
 ---
 
 <Layout title="News - Pavlos Papaefstathiou">
@@ -15,7 +16,7 @@ import { posts } from '../../data/posts';
 				{posts.map((post) => (
 					<article class="news-card">
 						<a href={`/news/${post.slug}`} class="card-link">
-							<time class="card-date">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+							<time class="card-date">{formatDateUK(post.date)}</time>
 							<h2 class="card-title">{post.title}</h2>
 							<p class="card-excerpt">{post.excerpt}</p>
 						</a>

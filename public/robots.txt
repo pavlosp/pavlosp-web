@@ -1,0 +1,8 @@
+# robots.txt for pavlosp.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://pavlosp.com/sitemap-index.xml
+

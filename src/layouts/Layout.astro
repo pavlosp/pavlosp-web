@@ -2,12 +2,18 @@
 interface Props {
 	title?: string;
 	description?: string;
+	ogImage?: string;
+	canonical?: string;
 }
 
 const { 
 	title = "Pavlos Papaefstathiou - Technology Strategist, Visual Storyteller, Electronic Music Enthusiast",
-	description = "Ex-BCG technology strategist, avid photographer, visual storyteller and electronic music enthusiast. Passionate about technology, data & AI, photography, electronic music, and driving equality."
+	description = "Ex-BCG technology strategist, avid photographer, visual storyteller and electronic music enthusiast. Passionate about technology, data & AI, photography, electronic music, and driving equality.",
+	ogImage = "https://pavlosp.com/og-image.jpg",
+	canonical = Astro.url.href
 } = Astro.props;
+
+const siteUrl = "https://pavlosp.com";
 ---
 
 <!doctype html>
@@ -23,17 +29,27 @@ const {
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="author" content="Pavlos Papaefstathiou" />
+		<meta name="keywords" content="technology strategist, photography, visual storytelling, electronic music, data & AI, BCG consultant, web development" />
+		<link rel="canonical" href={canonical} />
+		<meta name="robots" content="index, follow" />
 		
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://pavlosp.com" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="Pavlos Papaefstathiou" />
+		<meta property="og:locale" content="en_GB" />
 		
 		<!-- Twitter Card Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@thepavlosp" />
+		<meta name="twitter:creator" content="@thepavlosp" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
 		
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,9 +76,44 @@ const {
 		</button>
 
 		<slot />
+
+		<!-- Footer -->
+		<footer class="footer">
+			<p>&copy; {new Date().getFullYear()} Pavlos Papaefstathiou</p>
+		</footer>
 		
 		<!-- 100% privacy-first analytics -->
 		<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+		
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Pavlos Papaefstathiou",
+				"url": "https://pavlosp.com",
+				"image": "https://pavlosp.com/og-image.jpg",
+				"jobTitle": "Technology Strategist",
+				"description": "Ex-BCG technology strategist, avid photographer, visual storyteller and electronic music enthusiast",
+				"sameAs": [
+					"https://www.linkedin.com/in/pavlospapaefstathiou/",
+					"https://github.com/pavlosp",
+					"https://instagram.com/thepavlosp",
+					"https://threads.net/@thepavlosp",
+					"https://www.youtube.com/@thepavlosp",
+					"https://soundcloud.com/pavlosp",
+					"https://36frames.me/@pavlosp"
+				],
+				"knowsAbout": [
+					"Technology Strategy",
+					"Data & AI",
+					"Photography",
+					"Visual Storytelling",
+					"Electronic Music",
+					"Web Development"
+				]
+			}
+		</script>
 	</body>
 </html>
 
@@ -213,6 +264,21 @@ const {
 			right: 1.5rem;
 			width: 44px;
 			height: 44px;
+		}
+	}
+
+	/* Footer */
+	.footer {
+		text-align: center;
+		padding: 3rem 3rem;
+		color: var(--color-text-secondary);
+		font-size: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 2rem 1.5rem;
 		}
 	}
 </style>

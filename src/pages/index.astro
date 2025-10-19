@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import profileVideo from '../assets/pavlosp-profile-video.mp4';
 import { posts } from '../data/posts';
+import { formatDateUK } from '../utils/date';
 ---
 
 <Layout>
@@ -111,7 +112,7 @@ import { posts } from '../data/posts';
 				{posts.map((post) => (
 					<article class="news-card">
 						<a href={`/news/${post.slug}`} class="card-link">
-							<time class="card-date">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+							<time class="card-date">{formatDateUK(post.date)}</time>
 							<h3 class="card-title">{post.title}</h3>
 							<p class="card-excerpt">{post.excerpt}</p>
 						</a>
@@ -119,11 +120,6 @@ import { posts } from '../data/posts';
 				))}
 			</div>
 		</section>
-
-		<!-- Footer -->
-		<footer class="footer">
-			<p>&copy; {new Date().getFullYear()} Pavlos Papaefstathiou</p>
-		</footer>
 	</main>
 </Layout>
 
@@ -289,15 +285,6 @@ import { posts } from '../data/posts';
 		height: 24px;
 	}
 
-	/* Footer */
-	.footer {
-		text-align: center;
-		padding: 3rem 3rem;
-		color: var(--color-text-secondary);
-		font-size: 0.875rem;
-		border-top: 1px solid var(--color-border);
-	}
-
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
 		.theme-toggle {
@@ -341,10 +328,6 @@ import { posts } from '../data/posts';
 		.social-icon {
 			width: 44px;
 			height: 44px;
-		}
-
-		.footer {
-			padding: 2rem 1.5rem;
 		}
 	}
 </style>

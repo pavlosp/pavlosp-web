@@ -13,6 +13,7 @@ This is my personal landing page built with [Astro](https://astro.build), showca
 - **Light/Dark Mode**: Automatic theme detection based on system preferences with manual toggle
 - **Privacy-First**: No cookies, no localStorage - uses Simple Analytics for privacy-first visitor insights
 - **Custom Favicon**: Retro-tech gradient π (pi) icon
+- **SEO Optimized**: Comprehensive meta tags, Open Graph, Twitter Cards, JSON-LD structured data
 
 ## 🔗 Social Links
 
@@ -32,6 +33,7 @@ The page includes icon-only social links to:
 - **Styling**: Scoped CSS with CSS custom properties for theming
 - **Theme System**: Session-only theme toggle (no persistent storage)
 - **Analytics**: Simple Analytics (privacy-first, no cookies)
+- **SEO**: Complete meta tags, Open Graph, Twitter Cards, canonical URLs, JSON-LD structured data
 
 ## 🚀 Commands
 
